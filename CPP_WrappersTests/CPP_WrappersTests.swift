@@ -53,7 +53,7 @@ class CPP_WrappersTests: XCTestCase
     {
         let a    = [1,2,3,4,5]
         let b    =  copy_seq(a)
-        XCTAssertEqualObjects(a,b)
+        XCTAssertTrue(a == b)
     }
     
     func testCopyIf()
@@ -61,14 +61,14 @@ class CPP_WrappersTests: XCTestCase
         let a    = [1,2,3,4,5]
         let pred = {$0 > 3}
         let b    =  copy_if(a,pred)
-        XCTAssertEqualObjects(b,[ 4,5] )
+        XCTAssertTrue(b == [ 4,5] )
     }
     
     func testCopyN()
     {
         let a    = [1,2,3,4,5]
         let b    =  copy_n(a,3)
-        XCTAssertEqualObjects(b,[ 1,2,3] )
+        XCTAssertTrue(b == [ 1,2,3] )
     }
     
     func testCount()
@@ -204,7 +204,7 @@ class CPP_WrappersTests: XCTestCase
         let a    = [1,2,3,4,5]
         let b    = replace(a,3,10)
         let c    = [1,2,10,4,5]
-        XCTAssertEqualObjects(b,c)
+        XCTAssertTrue(b == c)
     }
     
     func testReplaceIf()
@@ -213,13 +213,13 @@ class CPP_WrappersTests: XCTestCase
         let pred = {$0 > 3}
         let b    = replace_if(a,10,pred)
         let c    = [1,2,3,10,10]
-        XCTAssertEqualObjects(b,c)
+        XCTAssertTrue(b == c)
     }
     
     func testUnique()
     {
         let a    = [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]
         let b    = unique(a)
-        XCTAssertEqualObjects(b,[1,2,3,4,5])
+        XCTAssertTrue(b == [1,2,3,4,5])
     }
 }

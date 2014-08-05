@@ -9,11 +9,11 @@
 import Foundation
 
 
-// Return an array for those elements of the sequence that do not satisfy the predicate.
-func remove<S : Sequence where S.GeneratorType.Element : Equatable>
-    ( seq: S, value: S.GeneratorType.Element) -> [S.GeneratorType.Element]
+// Return an array for those elements of the SequenceType that do not satisfy the predicate.
+func remove<S : SequenceType where S.Generator.Element : Equatable>
+    ( seq: S, value: S.Generator.Element) -> [S.Generator.Element]
 {
-    var values = Array<S.GeneratorType.Element>()
+    var values = Array<S.Generator.Element>()
     
     for elem in seq
     {

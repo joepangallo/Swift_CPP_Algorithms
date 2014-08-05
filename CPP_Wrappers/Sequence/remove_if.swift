@@ -8,17 +8,17 @@
 
 import Foundation
 
-// Return an array for those elements of the sequence that do not satisfy the predicate.
-func remove_if<S : Sequence, L : LogicValue>
-    ( seq: S, predicate: (S.GeneratorType.Element) -> L) -> [S.GeneratorType.Element]
+// Return an array for those elements of the SequenceType that do not satisfy the predicate.
+func remove_if<S : SequenceType, L : BooleanType>
+    ( seq: S, predicate: (S.Generator.Element) -> L) -> [S.Generator.Element]
 {
-    var values = Array<S.GeneratorType.Element>()
+    var values = Array<S.Generator.Element>()
     
     var itr = seq.generate()
     
     while let i = itr.next()
     {
-        if predicate(i).getLogicValue() == false
+        if predicate(i).boolValue == false
         {
             values.append(i)
         }

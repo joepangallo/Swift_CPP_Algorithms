@@ -8,13 +8,13 @@
 
 import Foundation
 
-// Determine if any of the elements of the sequence satisfies the predicate.
-func any_of< S : Sequence, L : LogicValue where S.GeneratorType.Element : Equatable>
-    (seq : S, predicate : (S.GeneratorType.Element) -> L ) -> Bool
+// Determine if any of the elements of the SequenceType satisfies the predicate.
+func any_of< S : SequenceType, L : BooleanType where S.Generator.Element : Equatable>
+    (seq : S, predicate : (S.Generator.Element) -> L ) -> Bool
 {
     for elem in seq
     {
-        if predicate(elem).getLogicValue() == true
+        if predicate(elem).boolValue == true
         {
             return true
         }

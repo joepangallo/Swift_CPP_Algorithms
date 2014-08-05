@@ -10,8 +10,8 @@ import Foundation
 
 
 // Return the first element in seq1 that matches a value in seq2.
-func find_first_of<S : Sequence where S.GeneratorType.Element : Comparable>
-    (seq1: S, seq2: S) -> S.GeneratorType.Element?
+func find_first_of<S : SequenceType where S.Generator.Element : Comparable>
+    (seq1: S, seq2: S) -> S.Generator.Element?
 {
     for ele in seq1
     {
@@ -26,14 +26,14 @@ func find_first_of<S : Sequence where S.GeneratorType.Element : Comparable>
 
 // Return the first element in seq1 that matches a value in seq2
 // based on the predicate.
-func find_first_of<L : LogicValue, S : Sequence where S.GeneratorType.Element : Comparable>
-    (seq1: S, seq2: S, predicate : (S.GeneratorType.Element) -> L) -> S.GeneratorType.Element?
+func find_first_of<L : BooleanType, S : SequenceType where S.Generator.Element : Comparable>
+    (seq1: S, seq2: S, predicate : (S.Generator.Element) -> L) -> S.Generator.Element?
 {
     for ele in seq1
     {
         if contains(seq2,ele) == true
         {
-            if predicate(ele).getLogicValue() == true
+            if predicate(ele).boolValue == true
             {
                 return ele
             }

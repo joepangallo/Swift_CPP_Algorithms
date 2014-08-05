@@ -9,14 +9,14 @@
 import Foundation
 
 // Return the count of all the elements in 'seq' that satisfy the predicate.
-func count_if<L : LogicValue, S : Sequence where S.GeneratorType.Element : Equatable>
-    (seq: S, predicate : (S.GeneratorType.Element) -> L ) -> Int
+func count_if<L : BooleanType, S : SequenceType where S.Generator.Element : Equatable>
+    (seq: S, predicate : (S.Generator.Element) -> L ) -> Int
 {
     var count = 0
     
     for elem in seq
     {
-        if predicate(elem).getLogicValue() == true
+        if predicate(elem).boolValue == true
         {
             ++count
         }

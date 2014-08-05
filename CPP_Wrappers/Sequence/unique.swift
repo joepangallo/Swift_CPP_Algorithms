@@ -9,11 +9,11 @@
 import Foundation
 
 // Remove all duplicate adjacent values.
-func unique<S : Sequence where S.GeneratorType.Element : Comparable >
-    ( seq: S) -> [S.GeneratorType.Element]
+func unique<S : SequenceType where S.Generator.Element : Comparable >
+    ( seq: S) -> [S.Generator.Element]
 {
-    var values = Array<S.GeneratorType.Element>()
-    var prev   : S.GeneratorType.Element?
+    var values = Array<S.Generator.Element>()
+    var prev   : S.Generator.Element?
     
     var itr = seq.generate()
     

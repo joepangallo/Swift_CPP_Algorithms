@@ -8,11 +8,11 @@
 
 import Foundation
 
-// Copy and return the first 'n' values in the sequence.
-func copy_n<S : Sequence >(seq : S, count : Int ) -> [S.GeneratorType.Element]
+// Copy and return the first 'n' values in the SequenceType.
+func copy_n<S : SequenceType >(seq : S, count : Int ) -> [S.Generator.Element]
 {
     var itr     = seq.generate()
-    var arr     = Array<S.GeneratorType.Element>()
+    var arr     = Array<S.Generator.Element>()
     var counter = 0
     
     while let i = itr.next()

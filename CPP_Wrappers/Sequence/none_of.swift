@@ -9,8 +9,8 @@
 import Foundation
 
 // Determine if none of the elements satisfy the predicate.
-func none_of< S : Sequence, L : LogicValue where S.GeneratorType.Element : Equatable>
-    (seq : S, predicate : (S.GeneratorType.Element) -> L ) -> Bool
+func none_of< S : SequenceType, L : BooleanType where S.Generator.Element : Equatable>
+    (seq : S, predicate : (S.Generator.Element) -> L ) -> Bool
 {
     return any_of(seq, predicate) == false
 }

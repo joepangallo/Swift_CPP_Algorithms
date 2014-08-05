@@ -8,10 +8,10 @@
 
 import Foundation
 
-/// Checks that both sequences contain the same elements.
-//  If not equal, return the elements in both sequences that are mismatched. Otherwise, returns nil
-func mismatch<S1 : Sequence, S2 : Sequence where S1.GeneratorType.Element == S2.GeneratorType.Element, S1.GeneratorType.Element : Equatable>
-    (a1: S1, a2: S2) -> (S1.GeneratorType.Element?,S1.GeneratorType.Element?)
+/// Checks that both SequenceTypes contain the same elements.
+//  If not equal, return the elements in both SequenceTypes that are mismatched. Otherwise, returns nil
+func mismatch<S1 : SequenceType, S2 : SequenceType where S1.Generator.Element == S2.Generator.Element, S1.Generator.Element : Equatable>
+    (a1: S1, a2: S2) -> (S1.Generator.Element?,S1.Generator.Element?)
 {
     var itr   = Zip2(a1,a2).generate()
     
@@ -26,9 +26,9 @@ func mismatch<S1 : Sequence, S2 : Sequence where S1.GeneratorType.Element == S2.
     return (nil,nil)
 }
 
-/// Checks that both sequences contain the same elements.
+/// Checks that both SequenceTypes contain the same elements.
 // Returns true or false
-func equal_seq<S1 : Sequence, S2 : Sequence where S1.GeneratorType.Element == S2.GeneratorType.Element, S1.GeneratorType.Element : Equatable>
+func equal_seq<S1 : SequenceType, S2 : SequenceType where S1.Generator.Element == S2.Generator.Element, S1.Generator.Element : Equatable>
     (a1: S1, a2: S2) -> Bool
 {
     return Swift.equal(a1,a2)

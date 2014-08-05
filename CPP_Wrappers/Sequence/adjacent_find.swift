@@ -8,12 +8,12 @@
 
 import Foundation
 
-// Iterates through the sequence to find the first matching
+// Iterates through the SequenceType to find the first matching
 // adjacent values. Returns the matching value.
-func adjacent_find<S : Sequence where S.GeneratorType.Element : Comparable >
-    ( seq: S) -> S.GeneratorType.Element?
+func adjacent_find<S : SequenceType where S.Generator.Element : Comparable >
+    ( seq: S) -> S.Generator.Element?
 {
-    var prev : S.GeneratorType.Element?
+    var prev : S.Generator.Element?
     
     var itr = seq.generate()
     

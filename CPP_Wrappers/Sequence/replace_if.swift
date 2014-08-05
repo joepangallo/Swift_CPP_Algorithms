@@ -9,14 +9,14 @@
 import Foundation
 
 // Replace those elements that satisfy the predicate.
-func replace_if<S : Sequence , L : LogicValue where S.GeneratorType.Element : Equatable >
-    (  seq: S,  newValue: S.GeneratorType.Element,predicate : (S.GeneratorType.Element) -> L ) ->[S.GeneratorType.Element]
+func replace_if<S : SequenceType , L : BooleanType where S.Generator.Element : Equatable >
+    (  seq: S,  newValue: S.Generator.Element,predicate : (S.Generator.Element) -> L ) ->[S.Generator.Element]
 {
-    var values = Array<S.GeneratorType.Element>(seq)
+    var values = Array<S.Generator.Element>(seq)
     
     for (index,elem) in enumerate(seq)
     {
-        if predicate(elem).getLogicValue() == true
+        if predicate(elem).boolValue == true
         {
             values[index] = newValue
         }

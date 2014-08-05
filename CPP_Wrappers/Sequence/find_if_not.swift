@@ -9,12 +9,12 @@
 import Foundation
 
 // Return the first element that does not satisfy the predicate.
-func find_if_not<S : Sequence, L : LogicValue>(
-    seq: S, predicate: (S.GeneratorType.Element) -> L) -> S.GeneratorType.Element?
+func find_if_not<S : SequenceType, L : BooleanType>(
+    seq: S, predicate: (S.Generator.Element) -> L) -> S.Generator.Element?
 {
     for elem in seq
     {
-        if predicate(elem).getLogicValue() == false
+        if predicate(elem).boolValue == false
         {
             return elem
         }
